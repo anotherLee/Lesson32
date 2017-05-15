@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ol id='button'></ol>
+    <button id=button>加载图片</button>
+    <script>
+        var page = 1
+        button.onclick = function(){
+            if(page === 4){
+                button.disabled = true
+                alert('没有了')
+            }
+            var request = new XMLHttpRequest()
+            request.open('GET','http://iwritejs.com:27121/page'+page+'.json')
+            request.onreadystatechange = function(){
+                if(request.readyState === 4){
+                    if(request.status >=200 & request.status < 300){
+                        page += 1
+                        array.forEach(function(item,index){
+                            let li = document.createElement('li')
+                            let image = document.createElement('img')
+                            li.appendChild(image)
+                            image.src = item.url
+                            container.appendChild(li)
+                        })
+                    }
+                }
+            }
+            request.send()
+        }
+    </script>
+</body>
+</html>
