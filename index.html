@@ -18,7 +18,7 @@
                 alert('没有了')
             }
             var request = new XMLHttpRequest()
-            request.open('GET','http://iwritejs.com:27121/page'+page+'.json')
+            request.open('GET','/page'+page+'.json')
             request.onreadystatechange = function(){
                 if(request.readyState === 4){
                     if(request.status >=200 & request.status < 300){
