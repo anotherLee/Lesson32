@@ -23,6 +23,13 @@
                 if(request.readyState === 4){
                     if(request.status >=200 & request.status < 300){
                         page += 1
+                        let object = JSON.parse(request.responseText)
+                        let array = object.items
+                        let hasNextPage = object.hasNextPage
+                        if(!hasNextPage){
+                            button.disabled = true
+                            button.innerText = '没有了'
+                        }
                         array.forEach(function(item,index){
                             let li = document.createElement('li')
                             let image = document.createElement('img')
