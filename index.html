@@ -51,7 +51,7 @@
         var page = 1
         button.onclick = function(){
             var request = new XMLHttpRequest()
-            request.open('GET','/page'+page+'.json')
+            request.open('GET','//page'+page+'.json')
             request.onreadystatechange = function(){
                 if(request.readyState === 4){
                     if(request.status >=200 & request.status < 300){
