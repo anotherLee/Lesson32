@@ -50,10 +50,6 @@
     <script>
         var page = 1
         button.onclick = function(){
-            if(page === 4){
-                button.disabled = true
-                alert('没有了')
-            }
             var request = new XMLHttpRequest()
             request.open('GET','/page'+page+'.json')
             request.onreadystatechange = function(){
